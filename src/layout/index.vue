@@ -1,6 +1,6 @@
 <template>
     <h1>
-        hello
+        <router-link to="/login">login</router-link>
     </h1>
 </template>
 
