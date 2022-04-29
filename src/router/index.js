@@ -18,4 +18,8 @@ const router = createRouter({
     routes: constantRoutes,
 })
 
+export function resetRouter() {
+    // 新路由
+}
+
 export default router

@@ -24,8 +24,13 @@
 import { reactive, ref } from "vue";
 import {validUsername} from '../../utils/validate'
 import type { FormInstance } from 'element-plus'
+import { useStore } from 'vuex'
+import { useRouter, useRoute } from 'vue-router'
 
 const Form = ref<FormInstance>()
+const store = useStore()
+const router = useRouter()
+const route = useRoute()
 
 const validateUsername = (rule: any, value: any, callback: any)=>{
     if (!validUsername(value)) {
@@ -56,7 +61,9 @@ const login = function (formEl) {
     if(!formEl) return
     formEl.validate((valid)=>{
         if(valid) {
-            
+            store.dispatch('user/login', loginForm).then(()=>{
+                router.push({path: '/'})
+            })
         } else {
             console.log('someting error!!');
         }
