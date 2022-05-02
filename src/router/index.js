@@ -5,7 +5,16 @@ import Layout from '../layout/index.vue'
 const constantRoutes = [
     {
         path: '/',
-        component: Layout
+        component: Layout,
+        redirect: '/dashboard',
+        children: [{
+            path: 'dashboard',
+            name: 'Dashboard',
+            component: ()=>import('../views/dashboard/index.vue'),
+            meta: {
+                title: 'Dashboard'
+            }
+        }]
     },
     {
         path: '/login',

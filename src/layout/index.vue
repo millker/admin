@@ -8,6 +8,7 @@
         <div :class="{'fixed-header':fixedHeader}">
             {{fixedHeader}}
         </div>
+        <AppMain />
     </div>
     </div>
 </template>
@@ -15,6 +16,7 @@
 <script setup>
 import { computed, reactive, ref } from "vue";
 import { useStore } from "vuex";
+import AppMain from './components/AppMain.vue'
 
 const store =  useStore()
 const app = reactive(store.state.app)
